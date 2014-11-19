@@ -38,9 +38,22 @@ def get_musician_names_by_page(page):
             print 'not exist'
     return musicians
 
-
 def get_musician_data_by_name(name):
     page = wikipedia.page(name)
+    img = get_musician_img_by_page(page)
+
+    return {
+        "name": name,
+        "image": img
+    }
+
+
+def get_musician_img_by_page(page):
+    try:
+        img = page.images[0]
+    except IndexError:
+        img = None
+    return img
 
 
 if __name__ == '__main__':
