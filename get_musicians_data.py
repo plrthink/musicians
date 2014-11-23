@@ -1,8 +1,9 @@
 
 
+import time
+
 import wikipedia
 from bs4 import BeautifulSoup
-
 
 BASE_PAGE_NAME = 'List of music students by teacher'
 
@@ -38,6 +39,7 @@ def get_musician_names_by_page(page):
             print 'not exist'
     return musicians
 
+
 def get_musician_data_by_name(name):
     page = wikipedia.page(name)
     img = get_musician_img_by_page(page)
@@ -56,6 +58,14 @@ def get_musician_img_by_page(page):
     return img
 
 
-if __name__ == '__main__':
+def store_all_musicians_data(sleep_time=2):
     all_musician_names = get_all_musician_names()
-    print "all musicians count %s" % len(all_musician_names)
+
+    for name in all_musician_names:
+        print "getting musician data %s" % name
+        data = get_musician_data_by_name(name)
+        print "posting data to firebase"
+        time.sleep(sleep_time)
+
+if __name__ == '__main__':
+    store_all_musicians_data()
