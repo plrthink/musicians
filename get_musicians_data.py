@@ -5,6 +5,9 @@ import time
 import wikipedia
 from bs4 import BeautifulSoup
 
+from config import firebase, MUSICIAN_STORE
+
+
 BASE_PAGE_NAME = 'List of music students by teacher'
 
 musician_page_1 = wikipedia.page("%s: A to M" % BASE_PAGE_NAME)
@@ -65,6 +68,7 @@ def store_all_musicians_data(sleep_time=2):
         print "getting musician data %s" % name
         data = get_musician_data_by_name(name)
         print "posting data to firebase"
+        firebase.put(MUSICIAN_STORE, name, data)
         time.sleep(sleep_time)
 
 if __name__ == '__main__':
