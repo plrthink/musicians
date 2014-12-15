@@ -10,4 +10,5 @@ http://en.wikipedia.org/wiki/List_of_music_students_by_teacher
 ## Setup
 
 `pip install -r requirements.txt`
+
 `cd visualization && npm install && bower install`
