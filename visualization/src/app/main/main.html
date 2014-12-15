@@ -1,0 +1,19 @@
+<div>
+
+  <div>
+    <h1>Musicians Network</h1>
+  </div>
+
+  <div ng-repeat="musician in musicians">
+    <div>
+      <div>
+        <h3>{{musician.id}}</h3>
+        <p>{{musician.name}}</p>
+        <a ng-href="{{musician.url}}">{{musician.name}}</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+</div>

@@ -52,3 +52,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Frontend 
+visualization/node_modules/
+visualization/bower_components/
+visualization/.sass-cache/
+visualization/.tmp/
+visualization/dist/
