@@ -3,5 +3,11 @@
 angular.module('visualization')
   .controller('MainCtrl', ['$scope', 'firebaseService',
     function ($scope, firebaseService) {
-      $scope.musicians = firebaseService() || [];
+
+      var musicians = firebaseService();
+      musicians.$loaded().then(function() {
+        console.log(musicians.length);
+        $scope.musicians = musicians;
+      });
+
   }]);
