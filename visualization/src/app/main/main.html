@@ -4,10 +4,5 @@
     <h1>Musicians Network</h1>
   </div>
 
-  <div ng-repeat="musician in musicians">
-    <h3>{{musician.id}}</h3>
-    <p>{{musician.age}}</p>
-    <a ng-href="{{musician.url}}">{{musician.name}}</a>
-  </div>
-
+  <chart musicians="musicians"></chart>
 </div>

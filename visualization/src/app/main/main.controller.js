@@ -6,8 +6,12 @@ angular.module('visualization')
 
       var musicians = firebaseService();
       musicians.$loaded().then(function() {
-        console.log(musicians.length);
         $scope.musicians = musicians;
+      });
+
+      // for debugging purpose
+      $scope.$watch('musicians', function(value) {
+        console.log(value);
       });
 
   }]);
