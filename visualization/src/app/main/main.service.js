@@ -5,7 +5,7 @@ angular.module('visualization')
 
     return function(){
       var ref = new Firebase('https://musicians.firebaseio.com/').child('musicians');
-      return $firebase(ref).$asArray();
+      return $firebase(ref).$asObject();
     };
 
   }]);

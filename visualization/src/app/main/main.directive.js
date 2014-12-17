@@ -13,7 +13,7 @@ angular.module('visualization')
                     </div>\
                   </div>',
         replace: true,
-        scope: {musicians: '='},
+        scope: {musicians: '=musicians'},
         link: link,
         restrict: 'EA'
       };
