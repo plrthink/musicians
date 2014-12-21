@@ -23,3 +23,16 @@
       font-size: 11px;
     }
   }
+
+  a.tooltip {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 150px;
+    height: 20px;
+    padding: 8px;
+    font: 10px sans-serif;
+    background: #f3f3f3;
+    border: solid 1px #aaa;
+    border-radius: 8px;
+  }

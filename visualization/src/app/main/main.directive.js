@@ -66,6 +66,11 @@ angular.module('visualization')
             .append("svg:g")
             .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
+        // Add tooltip div
+        var tooltip = d3.select(element[0]).append("a")
+        .attr("class", "tooltip")
+        .style("opacity", 1e-6);
+
         root = scope.musicians;
         console.log(root);
         root.x0 = h / 2;
@@ -185,6 +190,37 @@ angular.module('visualization')
         toggle(root.children[2].children[1]);
 
         update(root);
+
+        // Add the dot at every node
+        function showTooltip(d) {
+          tooltip.transition()
+          .duration(300)
+          .style("opacity", 1)
+          .text("Info about " + d.name)
+          .attr("href", d.url)
+          .style("left", (d3.event.pageX ) + "px")
+          .style("top", (d3.event.pageY) + "px");
+        }
+
+        function hideTooltip() {
+          tooltip.transition()
+          .duration(600)
+          .style("opacity", 1e-6);
+        }
+
+        function preserveTooltip() {
+          tooltip.transition()
+          .duration(0)
+          .style("opacity", 1);
+        }
+
+        vis.selectAll("g.node text")
+        .on("mouseover", function(d){showTooltip(d);})
+        .on("mouseout", hideTooltip);
+
+        tooltip
+        .on("mouseover", preserveTooltip)
+        .on("mouseout", hideTooltip);
 
       }, 2000);
     };
