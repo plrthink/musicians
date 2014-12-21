@@ -171,6 +171,11 @@ angular.module('visualization')
             d.x0 = d.x;
             d.y0 = d.y;
           });
+
+          // Update text node, rebind handler
+          vis.selectAll("g.node text")
+          .on("mouseover", function(d){showTooltip(d);})
+          .on("mouseout", hideTooltip);
         }
 
         // Toggle children.
