@@ -5,6 +5,7 @@ angular.module('visualization', [
     'firebase'
   ])
   .config(function ($routeProvider) {
+
     $routeProvider
       .when('/', {
         templateUrl: 'app/main/main.html',
@@ -13,4 +14,5 @@ angular.module('visualization', [
       .otherwise({
         templateUrl: '404.html'
       });
+
   });
